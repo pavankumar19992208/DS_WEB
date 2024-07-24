@@ -87,10 +87,10 @@
   margin-top: 2%;
 }
 .widget-align-left{
-  margin-left: 10%;
+  margin-left: 0%;
 }
 .widget-align-right{
-  margin-right: 20%;
+  margin-right: 0%;
 }
 .loginPopup {
   position: fixed;
@@ -191,7 +191,7 @@
 }
 
 .inputIcon input[type="text"],.inputIcon input[type="password"] {
-  padding-left: 35px;
+  padding-left: 36px;
 }
 
 .inputIcon i {
@@ -232,7 +232,7 @@
   color: #d85050;
   text-decoration: underline;
   width:fit-content;
-  margin-right: 10px;
+  margin-right: 0px;
   justify-self: start;  
 }
 
@@ -264,7 +264,7 @@
 }
 .space {
   text-align: left;
-  padding-left: 35px;
+  padding-left: 36px;
   padding-top: 10px;
   padding-bottom: 0%;
   margin-bottom: 5px;
@@ -275,7 +275,7 @@
   grid-template-columns: 1fr 1fr;
   /* justify-content: space-between; */
   justify-items: stretch;
-  gap: 62px;
+  gap: 230px;
 }
 
 

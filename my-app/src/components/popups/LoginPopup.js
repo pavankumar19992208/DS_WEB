@@ -13,7 +13,7 @@ const LoginPopup = ({ onClose }) => {
   <div className="loginPopupContainer">
     <div className='widget-container'>
     <div className="loginHeader">
-      <h2 style={{marginLeft:'10%'}}>ADMINISTRATION  LOGIN</h2>
+      <h2 style={{marginLeft:'0%'}}>ADMINISTRATION  LOGIN</h2>
       <button onClick={onClose} className="closeButton widget-align-right">X</button>
     </div>
     <div className="loginBody">

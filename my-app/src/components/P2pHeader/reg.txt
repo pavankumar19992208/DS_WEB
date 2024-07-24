@@ -1,0 +1,165 @@
+import React, { useState } from 'react';
+
+function RegistrationForm() {
+  const [formData, setFormData] = useState({
+    SCHOOL_NAME: '',
+    SYLLABUS_TYPE: '',
+    ADH_NAME: '',
+    ADH_MOBILE: '',
+    ADH_EMAIL: '',
+    D_NO: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    console.log(formData);
+  };
+
+  // Inline styles
+  const styles = {
+    body: {
+      
+      fontFamily: 'Arial, sans-serif',
+      padding: '20px',
+      
+    },
+    container: {
+      maxWidth: '600px',
+      margin: '0 0 0 auto', // Adjust margin to move container to the right side
+      backgroundColor: '#fff',
+      padding: '20px',
+      borderRadius: '8px',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    },
+    header: {
+      marginBottom: '20px',
+      textAlign: 'center',
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '10px',
+    },
+    inputBox: {
+      display: 'flex',
+      flexDirection: 'column',
+      marginBottom: '10px',
+    },
+    label: {
+      marginBottom: '5px',
+    },
+    input: {
+      padding: '10px',
+      borderRadius: '4px',
+      border: '1px solid #ccc',
+    },
+    submitButton: {
+      padding: '10px 20px',
+      backgroundColor: '#007bff',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+    },
+    flexContainer: {
+      display: 'flex',
+      justifyContent: 'flex-start', // Align items to the start of the container
+      gap: '20px', // Space between the button and the form
+    },
+  };
+
+  return (
+    <div style={styles.body}>
+      <section style={styles.container}>
+        <header style={styles.header}>Registration Form</header>
+
+        <form className="form" onSubmit={handleSubmit} style={styles.form}>
+          <div style={styles.inputBox}>
+            <label style={styles.label}> SCHOOL_NAME</label>
+            <input
+              type="text"
+              name="SCHOOL_NAME"
+              value={formData.SCHOOL_NAME}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </div>
+          <div style={styles.inputBox}>
+            <label style={styles.label}> SCHOOL_CODE</label>
+            <input
+              type="text"
+              name="SCHOOL_CODE"
+              value={formData.SCHOOL_CODE}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </div>
+          <div style={styles.inputBox}>
+            <label style={styles.label}>SYLLABUS_TYPE</label>
+            <input
+              type="text"
+              name="SYLLABUS_TYPE"
+              value={formData.SYLLABUS_TYPE}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </div>
+          <div style={styles.inputBox}>
+            <label style={styles.label}>ADH_NAME</label>
+            <input
+              type="text"
+              name="ADH_NAME"
+              value={formData.ADH_NAME}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </div>
+          <div className="column">
+            <div style={styles.inputBox}>
+              <label style={styles.label}>ADH_MOBILE</label>
+              <input
+                type="text"
+                name="ADH_MOBILE"
+                value={formData.ADH_MOBILE}
+                onChange={handleChange}
+                style={styles.input}
+              />
+            </div>
+            <div style={styles.inputBox}>
+              <label style={styles.label}>ADH_EMAIL</label>
+              <input
+                type="text"
+                name="ADH_EMAIL"
+                value={formData.ADH_EMAIL}
+                onChange={handleChange}
+                style={styles.input}
+              />
+            </div>
+          </div>
+          <div style={styles.inputBox}>
+            <label style={styles.label}>D_NO</label>
+            <input
+              type="text"
+              name="D_NO"
+              value={formData.D_NO}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </div>
+          <button type="submit" style={styles.submitButton}>Submit</button>
+        </form>
+      </section>
+    </div>
+  );
+}
+
+export default RegistrationForm;

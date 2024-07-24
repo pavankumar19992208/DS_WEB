@@ -116,6 +116,11 @@ function RegistrationForm() {
       </div>
     );
 
+ 
+
+  
+
+  //form1
   const [formData, setFormData] = useState({
     SCHOOL_NAME: '',
     SYLLABUS_TYPE: '',
@@ -124,6 +129,7 @@ function RegistrationForm() {
     ADH_EMAIL: '',
     D_NO: '',
   });
+
   const [showForm, setShowForm] = useState(false); // State to control form visibility
 
   const handleChange = (e) => {
@@ -140,6 +146,34 @@ function RegistrationForm() {
     e.preventDefault();
     console.log(formData);
   };
+
+  //form2
+
+  const [anotherFormData, setAnotherFormData] = useState({
+    SCHOOL_NAME: '',
+    SYLLABUS_TYPE: '',
+    ADH_NAME: '',
+    ADH_MOBILE: '',
+    ADH_EMAIL: '',
+    D_NO: '',
+  });
+  
+  const [showAnotherForm, setShowAnotherForm] = useState(false);
+
+  const toggleAnotherFormVisibility = () => setShowAnotherForm(!showAnotherForm);
+    
+  const handleAnotherSubmit = (e) => {
+    e.preventDefault();
+    console.log(anotherFormData);
+  };
+  const handleAnotherChange = (e) => {
+    const { name, value } = e.target;
+    setAnotherFormData({
+      ...anotherFormData,git branch
+      [name]: value,
+    });
+  };
+
 
   const styles = {
 
@@ -202,8 +236,12 @@ function RegistrationForm() {
       height: '100vh', // Full height of the viewport
     },
     buttonContainer: {
+        margin:'200px',
       flex: 1, // Take up 1/2 of the space
       padding: '20px', // Adjust as needed
+        display: 'flex',
+        flexDirection: 'column',
+        gap:'10px',
     },
     formContainer: {
       flex: 1,
@@ -214,14 +252,14 @@ function RegistrationForm() {
     },
     // Other styles...
     buttons:{
-      padding: '10px 20px',
+      padding: '20px 20px',
       backgroundColor: '#007bff',
       color: '#fff',
       border: 'none',
       borderRadius: '4px',
       cursor: 'pointer',
-      margin:'300px',
-      width:'150px',
+      margin:'12px',
+      width:'200px',
 
     },
   };
@@ -255,13 +293,14 @@ function RegistrationForm() {
     <div style={styles.pageContainer}>
       <div style={styles.buttonContainer}>
         {/* Place your buttons here */}
-        <button style={styles.buttons} onClick={toggleFormVisibility}>Register Schools</button>        
+        <button style={styles.buttons} onClick={toggleFormVisibility}>Teacher Registration</button>   
+        <button style={styles.buttons} onClick={toggleAnotherFormVisibility}>Parent Registration</button> 
         {/* Add more buttons as needed */}
       </div>
       {showForm &&(
               <div style={styles.formContainer}>
               <section style={styles.container}>
-                <header style={styles.header}>Registration Form</header>
+                <header style={styles.header}>Teacher Registration</header>
                 <form className="form" onSubmit={handleSubmit} style={styles.form}>
                   {/* Form fields */}
                   <div style={styles.inputBox}>
@@ -345,6 +384,96 @@ function RegistrationForm() {
       
 
       )}
+
+
+{showAnotherForm &&(
+              <div style={styles.formContainer}>
+              <section style={styles.container}>
+                <header style={styles.header}>Parent Registration</header>
+                <form className="form" onSubmit={handleAnotherSubmit} style={styles.form}>
+                  {/* Form fields */}
+                  <div style={styles.inputBox}>
+                  <label style={styles.label}> SCHOOL_NAME</label>
+                  <input
+                    type="text"
+                    name="SCHOOL_NAME"
+                    value={anotherFormData.SCHOOL_NAME}
+                    onChange={handleAnotherChange}
+                    style={styles.input}
+                  />
+                </div>
+                <div style={styles.inputBox}>
+                  <label style={styles.label}> SCHOOL_CODE</label>
+                  <input
+                    type="text"
+                    name="SCHOOL_CODE"
+                    value={anotherFormData.SCHOOL_CODE}
+                    onChange={handleAnotherChange}
+                    style={styles.input}
+                  />
+                </div>
+                <div style={styles.inputBox}>
+                  <label style={styles.label}>SYLLABUS_TYPE</label>
+                  <input
+                    type="text"
+                    name="SYLLABUS_TYPE"
+                    value={anotherFormData.SYLLABUS_TYPE}
+                    onChange={handleAnotherChange}
+                    style={styles.input}
+                  />
+                </div>
+                <div style={styles.inputBox}>
+                  <label style={styles.label}>ADH_NAME</label>
+                  <input
+                    type="text"
+                    name="ADH_NAME"
+                    value={anotherFormData.ADH_NAME}
+                    onChange={handleAnotherChange}
+                    style={styles.input}
+                  />
+                </div>
+                {/* <div className="column"> */}
+                  <div style={styles.inputBox}>
+                    <label style={styles.label}>ADH_MOBILE</label>
+                    <input
+                      type="text"
+                      name="ADH_MOBILE"
+                      value={anotherFormData.ADH_MOBILE}
+                      onChange={handleAnotherChange}
+                      style={styles.input}
+                    />
+                  </div>
+                  <div style={styles.inputBox}>
+                    <label style={styles.label}>ADH_EMAIL</label>
+                    <input
+                      type="text"
+                      name="ADH_EMAIL"
+                      value={anotherFormData.ADH_EMAIL}
+                      onChange={handleAnotherChange}
+                      style={styles.input}
+                    />
+                  </div>
+                
+                <div style={styles.inputBox}>
+                  <label style={styles.label}>D_NO</label>
+                  <input
+                    type="text"
+                    name="D_NO"
+                    value={anotherFormData.D_NO}
+                    onChange={handleAnotherChange}
+                    style={styles.input}
+                  />
+                </div>
+                {/* <button type="submit" style={styles.submitButton}>Submit</button> */}
+                <Link to="/AnotherSignup" type="submit" style={styles.submitButton}>Submit</Link>
+
+                </form>
+              </section>
+            </div>
+      
+
+      )}
+
     </div>
     </>
   );
