@@ -169,7 +169,7 @@ function RegistrationForm() {
   const handleAnotherChange = (e) => {
     const { name, value } = e.target;
     setAnotherFormData({
-      ...anotherFormData,git branch
+      ...anotherFormData,
       [name]: value,
     });
   };
