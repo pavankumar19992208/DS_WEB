@@ -66,7 +66,8 @@ function EcommerceNavbar() {
   };
 
   const handleProductClick = (productId) => {
-    navigate(`/product-overview/${productId}`);
+    setSearchInput('');
+    window.open(`/product-overview/${productId}`, '_blank');
   };
 
   const filteredProducts = products.filter(product =>
@@ -91,7 +92,7 @@ function EcommerceNavbar() {
             value={searchInput}
             onChange={handleSearchChange}
           />
-          {filteredProducts.length > 0 && (
+          {searchInput && filteredProducts.length > 0 && (
             <ResultsList>
               <List>
                 {filteredProducts.map((product) => (

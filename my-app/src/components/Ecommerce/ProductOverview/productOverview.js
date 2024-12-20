@@ -126,7 +126,7 @@ const ProductOverview = () => {
           <Slider {...mainSliderSettings} className="custom-slider">
             {product.imageUrls.map((url, index) => (
               <div key={index}>
-                <img src={url} alt={product.name} style={{ width:'100%', height: '508px', objectFit: 'contain'}} />
+                <img src={url} alt={product.name} style={{ width:'100%', height: '380px', objectFit: 'contain'}} />
               </div>
             ))}
           </Slider>
@@ -134,18 +134,19 @@ const ProductOverview = () => {
         <div className="product-info">
           <div className="product-details">
             <h1>{product.name}</h1>
-            <p>Price: ₹{product.price}</p>
-            <p>Stock: {product.stock}</p>
+            <p><strong>Price :</strong> <span className='price-text'>₹{product.price}</span></p>
           </div>
           <div className="product-description-buttons">
-            <div className="product-description">
-              <p>Description: <br/><br/>{renderDescription()}</p>
-              {product.description.length > 300 && (
-                <a href="#" onClick={toggleDescription}>
-                  {isDescriptionExpanded ? 'less' : 'more'}
-                </a>
-              )}
-            </div>
+          <div className="product-description">
+            <p><strong>Description :</strong> <br/>
+              <span dangerouslySetInnerHTML={{ __html: renderDescription() }} />
+            </p>
+            {product.description.length > 300 && (
+              <a href="#" onClick={toggleDescription}>
+                {isDescriptionExpanded ? 'less' : 'more'}
+              </a>
+            )}
+          </div>
             <div className="btns">
               <button onClick={handleAddToFavourites}>Add to Favourites</button>
               <button onClick={handleAddToCart}>Add to Cart</button>
