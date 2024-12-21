@@ -1,6 +1,5 @@
-.dashboard {
-  margin: 4% 0;
-  padding: 20px;
+.products-list-dashboard {
+  margin: 0 auto;
   font-family: Arial, sans-serif;
 }
 
@@ -9,14 +8,12 @@
   color: #333;
 }
 
-.content {
-  margin-top: 20px;
-}
-
 .product-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 98%;
+  margin: 12px auto;
 }
 
 .product {

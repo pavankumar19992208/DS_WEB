@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IconButton, InputBase, Badge, Box, List, ListItem, Paper } from '@mui/material';
+import { IconButton, InputBase, Badge, Box, List, ListItem, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import MailIcon from '@mui/icons-material/Mail';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ListAltIcon from '@mui/icons-material/ListAlt';
 import './ecommerceNavbar.css';
 
 const Search = styled('div')(({ theme }) => ({
@@ -19,7 +15,10 @@ const Search = styled('div')(({ theme }) => ({
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
-  '--theme-spacing-0-2': theme.spacing(0, 2),
+  '--theme-spacing-0-2': theme.spacing(0, 1),
+  background: '#f0f0f0',
+  borderRadius: '6px',
+  cursor: 'pointer'
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -79,6 +78,9 @@ function EcommerceNavbar() {
       <div className='toolbar'>
         <IconButton edge="start" color="inherit">
           <AccountCircle sx={{color:'white'}}/>
+          <Typography variant="h6" sx={{ color: 'white', marginLeft: 5 }} className='nav-heading'>
+            neuraLife
+          </Typography>
         </IconButton>
         <Box sx={{ flexGrow: 1 }} />
         <Search className="search">
@@ -108,24 +110,24 @@ function EcommerceNavbar() {
             </ResultsList>
           )}
         </Search>
-        <IconButton color="inherit" sx={{ mx: 1 }}>
-          <Badge badgeContent={4} color="secondary">
-            <ShoppingCartIcon sx={{color:'white'}}/>
+        <IconButton color="inherit" sx={{ mx: 1.5 }}>
+          <Badge badgeContent={4} color="secondary" sx={{ '& .MuiBadge-badge': { fontSize: '0.75rem', padding: '0 4px', marginTop: '-6px'} }}>
+          <span style={{ color: 'white', fontSize: '1rem' }} className='en-urbanist-regular'>Cart</span>
           </Badge>
         </IconButton>
-        <IconButton color="inherit" sx={{ mx: 1 }}>
-          <Badge badgeContent={17} color="secondary">
-            <MailIcon sx={{color:'white'}}/>
+        <IconButton color="inherit" sx={{ mx: 1.5 }}>
+          <Badge badgeContent={17} color="secondary" sx={{ '& .MuiBadge-badge': { fontSize: '0.75rem', padding: '0 4px', marginTop: '-6px' } }}>
+          <span style={{ color: 'white', fontSize: '1rem' }} className='en-urbanist-regular'>Mail</span>
           </Badge>
+          </IconButton>
+        <IconButton color="inherit" sx={{ mx: 1.5 }}>
+        <span style={{ color: 'white', fontSize: '1rem' }} className='en-urbanist-regular'>Orders</span>
         </IconButton>
-        <IconButton color="inherit" sx={{ mx: 1 }}>
-          <ListAltIcon sx={{color:'white'}}/>
+        <IconButton color="inherit" sx={{ mx: 1.5 }}>
+        <span style={{ color: 'white', fontSize: '1rem' }} className='en-urbanist-regular'>Favorites</span>
         </IconButton>
-        <IconButton color="inherit" sx={{ mx: 1 }}>
-          <FavoriteIcon sx={{color:'white'}}/>
-        </IconButton>
-        <IconButton edge="start" color="inherit" sx={{ mx: 1 }}>
-          <AccountCircle sx={{color:'white'}}/>
+        <IconButton edge="start" color="inherit" sx={{ mx: 1.5 }}>
+        <AccountCircle sx={{color:'white'}}/>
         </IconButton>
       </div>
     </div>

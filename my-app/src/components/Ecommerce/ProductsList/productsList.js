@@ -13,7 +13,14 @@ const ProductsList = () => {
       try {
         const params = new URLSearchParams(location.search);
         const category = params.get('category');
-        const response = await fetch(`http://localhost:8001/products?category=${category}`);
+        const search = params.get('search');
+        let url = 'http://localhost:8001/products';
+        if (category) {
+          url += `?category=${category}`;
+        } else if (search) {
+          url += `?search=${search}`;
+        }
+        const response = await fetch(url);
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -39,7 +46,7 @@ const ProductsList = () => {
   };
 
   return (
-    <div className="dashboard">
+    <div className="produt-list-dashboard">
       <EcommerceNavbar />
       <div className="product-list">
         {products.length > 0 ? (
